@@ -1,0 +1,770 @@
+{
+  "info": {
+    "name": "AGRO Production API",
+    "description": "API для управления производством средств защиты растений",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "1. Аутентификация и пользователи",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"login\": \"tech.ivanov\",\n    \"password\": \"hash123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/auth/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"login\": \"new.operator\",\n    \"password\": \"password123\",\n    \"full_name\": \"Новый Оператор\",\n    \"role\": \"Operator\",\n    \"email\": \"operator@agro.ru\",\n    \"phone\": \"+7 (999) 123-45-67\",\n    \"department\": \"Цех №1\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/auth/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "auth", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/auth/profile/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "auth", "profile", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/Users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "Users"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2. Справочная информация",
+      "item": [
+        {
+          "name": "Get Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/reference/products",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "reference", "products"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Components",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/reference/components",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "reference", "components"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Equipment",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/reference/equipment",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "reference", "equipment"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Roles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/reference/roles",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "reference", "roles"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "3. Рецептуры",
+      "item": [
+        {
+          "name": "Get All Recipes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/recipes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "recipes"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Recipe By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/recipes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "recipes", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Recipe",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Новый Гербицид\",\n    \"version\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/recipes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "recipes"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Component to Recipe",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"component_id\": 1,\n    \"percentage\": 50.0,\n    \"load_order\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/recipes/1/composition",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "recipes", "1", "composition"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Recipe Status",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"status\": \"active\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/recipes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "recipes", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "4. Технологические карты",
+      "item": [
+        {
+          "name": "Get All Process Cards",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/processcards",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "processcards"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Process Card By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/processcards/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "processcards", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Process Card",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"product_id\": 1,\n    \"recipe_id\": 1,\n    \"version\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/processcards",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "processcards"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Approve Process Card",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/processcards/1/approve",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "processcards", "1", "approve"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "5. Производственные заказы и партии",
+      "item": [
+        {
+          "name": "Get All Orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/orders",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "orders"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"order_number\": \"PO-2501\",\n    \"recipe_id\": 1,\n    \"planned_quantity\": 2000,\n    \"planned_start_date\": \"2025-04-01\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/orders",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "orders"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Batches",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/batches",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "batches"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Active Batches (For Operator)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/batches/active",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "batches", "active"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Batch By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/batches/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "batches", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Batch",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"batch_number\": \"B-2501-01\",\n    \"order_id\": 1,\n    \"user_id\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/batches",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "batches"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "6. Выполнение шагов (Аппаратчик)",
+      "item": [
+        {
+          "name": "Get Batch Steps",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/batches/1/steps",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "batches", "1", "steps"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Start Step",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"batch_id\": 1,\n    \"step_order\": 3,\n    \"step_name\": \"Нагрев\",\n    \"planned_temp\": 80,\n    \"planned_duration_min\": 45,\n    \"planned_pressure\": 3.0,\n    \"operator_id\": 5\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/steps/start",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "steps", "start"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Complete Step",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"step_id\": 1,\n    \"actual_temp\": 79.5,\n    \"actual_pressure\": 2.9,\n    \"actual_duration_min\": 46,\n    \"operator_comment\": \"Шаг выполнен успешно\",\n    \"deviation_flag\": false,\n    \"operator_id\": 5\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/steps/complete",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "steps", "complete"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "7. Лаборатория",
+      "item": [
+        {
+          "name": "Get All Tests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/lab/tests",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "lab", "tests"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Raw Materials",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/lab/raw-materials",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "lab", "raw-materials"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Test",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"test_type\": \"batch_control\",\n    \"batch_id\": 1,\n    \"laborant_id\": 10\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/lab/tests",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "lab", "tests"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Test Result",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"parameter\": \"Concentration\",\n    \"min_norm\": \"96\",\n    \"max_norm\": \"99\",\n    \"actual_value\": \"98.5\",\n    \"is_compliant\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/lab/tests/1/results",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "lab", "tests", "1", "results"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Complete Test with Decision",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"decision\": \"approved\",\n    \"reason\": \"Все параметры в норме\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/lab/tests/1/complete",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "lab", "tests", "1", "complete"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Quality Control",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"batch_id\": 1,\n    \"sample_type\": \"finished_product\",\n    \"parameter_name\": \"concentration\",\n    \"measured_value\": \"98.2\",\n    \"standard_value\": \"97\",\n    \"unit\": \"%\",\n    \"result\": \"pass\",\n    \"decision\": \"approved\",\n    \"analyst_comment\": \"Соответствует норме\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/lab/quality-control",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "lab", "quality-control"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "8. Отклонения, события и уведомления",
+      "item": [
+        {
+          "name": "Get All Deviations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/deviations",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "deviations"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Deviations By Batch",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/deviations/batch/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "deviations", "batch", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Deviation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"batch_id\": 1,\n    \"type\": \"Температура\",\n    \"severity\": \"High\",\n    \"description\": \"Критическое отклонение температуры\",\n    \"planned_value\": \"80\",\n    \"actual_value\": \"95\",\n    \"reported_by\": 5\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/deviations",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "deviations"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Resolve Deviation",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"resolution\": \"Отрегулирован нагреватель\",\n    \"resolved_by\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:50543/api/deviations/1/resolve",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "deviations", "1", "resolve"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Event Log",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/events?limit=50",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "events"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "50"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Notifications",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:50543/api/notifications",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "50543",
+              "path": ["api", "notifications"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
